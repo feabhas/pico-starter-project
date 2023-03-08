@@ -81,13 +81,13 @@ As we are connecting with a particular adapter with some specific target,
 we need to source both the SWD interface and the target configs,
 e.g.:
 
-  openocd -f interface/cmsis-dap.cfg -c "adapter speed 5000" -f target/rp2040.cfg -s tcl
+  `openocd -f interface/cmsis-dap.cfg -c "adapter speed 5000" -f target/rp2040.cfg -s tcl`
 
 
 ### Host debugging
 
 After OpenOCD startup, connect GDB with
-   
+```
   $ arm-none-eabi-gdb :3333 build/test.elf
 
   (gdb) target extended-remote :3333
@@ -95,6 +95,7 @@ After OpenOCD startup, connect GDB with
   (gdb) load
   (gdb) mon reset halt
   (gdb) continue
+```
 
 ### DevContainer debugging
 
