@@ -72,3 +72,32 @@ CMakeFiles      build.ninja          compile_commands.json  generated  pioasm   
 
 The `.uf2` file can be copied to the Pico to execute the example.
 
+
+## Basic Debugging with GDB/OpenOCD (Raspberry Pi Debug Probe)
+
+Fisrt we need to start amn OpenOCD session on the host machine.
+
+As we are connecting with a particular adapter with some specific target,
+we need to source both the SWD interface and the target configs,
+e.g.:
+
+  openocd -f interface/cmsis-dap.cfg -c "adapter speed 5000" -f target/rp2040.cfg -s tcl
+
+
+### Host debugging
+
+After OpenOCD startup, connect GDB with
+   
+  $ arm-none-eabi-gdb :3333 build/test.elf
+
+  (gdb) target extended-remote :3333
+  (gdb) mon reset halt
+  (gdb) load
+  (gdb) mon reset halt
+  (gdb) continue
+
+### DevContainer debugging
+
+The Cortex-Debug extension is included. Running this as a debug session will connect to the target.
+
+However, the interaction with the target appears *flakey* at the moment [ To Be Investigated Further]

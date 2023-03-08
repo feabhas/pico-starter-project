@@ -2,27 +2,29 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/cpp
 {
 	"name": "C++",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"image" : "feabhas/pico-projects",
+	// "build": {
+	// 	"dockerfile": "Dockerfile"
+	// },
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	// "forwardPorts": ["3333"],
+
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "cp /workspaces/pico-sdk/external/pico_sdk_import.cmake $PWD",
-
-
+	// "postCreateCommand": "",
 
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"ms-vscode.cpptools",
-				"ms-vscode.cmake-tools"
+				"ms-vscode.cmake-tools",
+				"marus25.cortex-debug",
+				"mcu-debug.debug-tracker-vscode"
 			]
 		}
 	},

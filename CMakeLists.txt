@@ -1,5 +1,6 @@
-cmake_minimum_required(VERSION 3.22)
-include(pico_sdk_import.cmake)
+# cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.16)
+include(/workspaces/pico-sdk/external/pico_sdk_import.cmake)
 project(test_project C CXX ASM)
 
 set(CMAKE_C_STANDARD 11)
