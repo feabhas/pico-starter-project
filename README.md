@@ -25,7 +25,7 @@ $ code .
 
 VScode will detect the presence of the `.devcontainer` folder and prompt you to select this option if you want to **Reopen in Container**.
 
-    The first time you run this, the Docker image must be created and the running container invoked. This will likely take a few minutes as packages are being pulled from the web. This is a one-off build; subsequently, running in a container will only take a couple of extra seconds.
+    The first time you run this, the Docker image must be pulled from DockerHub and the running container invoked. This will likely take a few minutes as packages are being pulled from the web. This is a one-off build; subsequently, running in a container will only take a couple of extra seconds.
 
 Once the container is running, open a `New Terminal` in VSCode.
 
@@ -36,16 +36,16 @@ vscode ➜ /workspaces/pico-starter-project (master) $
 
 ### Building the example - Using VSCode CMake
 
-VSCode will promt you to select a kit for building with CMake
+VSCode will prompt you to select a kit for building with CMake:
 
 * Select the `arm-none-eabi` option
 
-Then on the bottom of the VSCode window click on the `Build` option. This invokes CMake and buids the target executables
+Then on the bottom of the VSCode window, click on the `Build` option. This invokes CMake and builds the target executables.
 
 
 ### Building the example - CLI
 
-Create the build files using CMake
+Create the build files using CMake:
 ```
 $ cmake -S . -B Build
 ```
@@ -75,7 +75,7 @@ The `.uf2` file can be copied to the Pico to execute the example.
 
 ## Basic Debugging with GDB/OpenOCD (Raspberry Pi Debug Probe)
 
-Fisrt we need to start amn OpenOCD session on the host machine.
+First, we need to start an OpenOCD session on the host machine.
 
 As we are connecting with a particular adapter with some specific target,
 we need to source both the SWD interface and the target configs,
@@ -98,6 +98,6 @@ After OpenOCD startup, connect GDB with
 
 ### DevContainer debugging
 
-The Cortex-Debug extension is included. Running this as a debug session will connect to the target.
+The Cortex-Debug extension is included in the VScode extensions. Running this as a debug session will connect to the target.
 
 However, the interaction with the target appears *flakey* at the moment [ To Be Investigated Further]
