@@ -5,14 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Cortex Debug",
+            "name": "Pico Debug",
             "cwd": "${workspaceFolder}",
-            "executable": "./build/test.elf",
+            "executable": "${command:cmake.launchTargetPath}",
             "request": "launch",
             "type": "cortex-debug",
-            "runToEntryPoint": "main",
             "servertype": "external",
+            "gdbPath" : "arm-none-eabi-gdb",
+            "device": "RP2040",
             "gdbTarget": "host.docker.internal:3333",
+            "runToEntryPoint": "main",
             "svdFile": "/workspaces/pico-sdk/src/rp2040/hardware_regs/rp2040.svd"
         }
     ]

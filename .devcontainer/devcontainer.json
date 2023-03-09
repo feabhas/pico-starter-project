@@ -24,7 +24,8 @@
 				"ms-vscode.cpptools",
 				"ms-vscode.cmake-tools",
 				"marus25.cortex-debug",
-				"mcu-debug.debug-tracker-vscode"
+				"mcu-debug.debug-tracker-vscode",
+				"ms-vscode.vscode-embedded-tools"
 			]
 		}
 	},

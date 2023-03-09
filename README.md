@@ -47,14 +47,22 @@ Then on the bottom of the VSCode window, click on the `Build` option. This invok
 
 Create the build files using CMake:
 ```
-$ cmake -S . -B Build
+$ cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 ```
 This will finish with:
 ```
+PICO_SDK_PATH is /workspaces/pico-sdk
+PICO platform is rp2040.
+Build type is Debug
+Using regular optimized debug build (set PICO_DEOPTIMIZED_DEBUG=1 to de-optimize)
+...
+...
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /workspaces/pico-examples/build
 ```
+
+the `-DCMAKE_BUILD_TYPE=Debug` can be ommited if you just want a release build.
 
 Now compile all the examples:
 ```
@@ -101,3 +109,25 @@ After OpenOCD startup, connect GDB with
 The Cortex-Debug extension is included in the VScode extensions. Running this as a debug session will connect to the target.
 
 However, the interaction with the target appears *flakey* at the moment [ To Be Investigated Further]
+
+
+## Installing OpenOCD on Host machine
+
+If you haven’t already, install vcpkg.
+
+### Linux/macOS
+
+`. <(curl https://aka.ms/vcpkg-init.sh -L)`
+
+### PowerShell
+
+`iex (iwr -useb https://aka.ms/vcpkg-init.ps1)`
+
+### CMD Shell
+
+`curl -LO https://aka.ms/vcpkg-init.cmd && .\vcpkg-init.cmd`
+
+Then:
+`vcpkg activate`
+
+See [Embedded Software Development in Visual Studio Code](https://devblogs.microsoft.com/cppblog/vscode-embedded-development/) to install `OpenOCD` using [vcpkg]()
